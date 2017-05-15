@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ComboBox?>
+<?import javafx.collections.*?>
+<?import java.lang.String?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.control.Label?>
+
+<VBox fx:controller="CadastroController" xmlns:fx="http://javafx.com/fxml" spacing="10">
+	<TextField fx:id="nameField" onKeyReleased="#handleInput"/>
+	<TextField fx:id="idadeField" onKeyReleased="#handleInput"/>
+	<ComboBox fx:id="currentJob" onAction="#handleCombo">
+		<items>
+			<FXCollections fx:factory="observableArrayList">
+				<String fx:value="Engenheiro"/>
+				<String fx:value="Pedreiro"/>
+				<String fx:value="Pedreiro Digital"/>
+			</FXCollections>
+		</items>
+	</ComboBox>
+	<HBox xmlns:fx="http://javafx.com/fxml" spacing="10">
+		<Button fx:id="cadastrar" text="Cadastrar" onAction="#cadastroAction" disable="true"/>
+		<Button fx:id="cancelar" text="Cancelar" onAction="#cadastroAction"/>
+	</HBox>
+	<Label fx:id="labelFinal" text="" wrapText="true"/>
+</VBox>
