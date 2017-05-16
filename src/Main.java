@@ -1,8 +1,3 @@
-
-
-import com.sun.glass.ui.TouchInputSupport;
-import com.sun.media.jfxmedia.events.NewFrameEvent;
-
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -16,7 +11,7 @@ public class Main extends Application{
 	public void start(Stage primaryStage) throws Exception {
 		mainStage = primaryStage;
 		Parent root = FXMLLoader.load(getClass().getResource("sample.fxml"));
-		primaryStage.setTitle("Hello World");
+		primaryStage.setTitle("Tela principal");
 		primaryStage.setScene(new Scene(root, 200, 200));
 		primaryStage.show();
 		

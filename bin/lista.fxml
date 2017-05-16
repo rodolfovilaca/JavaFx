@@ -6,7 +6,5 @@
 
 <VBox fx:controller="ListViewController" xmlns:fx="http://javafx.com/fxml">
 	<ListView fx:id="listaFunc">
-	
 	</ListView>
-	
 </VBox>
