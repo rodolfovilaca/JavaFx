@@ -12,6 +12,6 @@
 	<Label fx:id="idade" text=""/>
 	<Label  text="Função:"/>
 	<Label fx:id="funcao" text=""/>
-	<Button fx:id="deleteBtn" text="Excluir"/>
+	<Button fx:id="deleteBtn" text="Excluir" onAction="#deleteCell"/>
 </children>
 </HBox>

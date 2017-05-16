@@ -37,6 +37,15 @@ public class ListViewCell extends ListCell<Person> {
 		Main.getPrimaryStage().show();
 	}
 
+	@FXML
+	private void deleteCell(ActionEvent event){
+		getListView().getItems().remove(getItem());
+
+		if (getListView().getItems().size() == 0) {
+			voltarAoMenuPrincipal();
+		}
+	}
+
 	@Override
 	protected void updateItem(Person item, boolean empty) {
 		super.updateItem(item, empty);
@@ -53,14 +62,6 @@ public class ListViewCell extends ListCell<Person> {
 			nome.setText(item.getName());
 			idade.setText(item.getIdade());
 			funcao.setText(item.getJob());
-			// THE MAGIC OF LAMBA EXPRESSIONS BIIIIIRL (da para melhorar ainda)
-			deleteBtn.setOnAction((ActionEvent event) -> {
-				getListView().getItems().remove(getItem());
-
-				if (getListView().getItems().size() == 0) {
-					voltarAoMenuPrincipal();
-				}
-			});
 			setGraphic(hBox);
 		} else {
 			setGraphic(null);
