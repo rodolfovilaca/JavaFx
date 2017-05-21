@@ -1,4 +1,5 @@
 import javafx.event.ActionEvent;
+import javafx.event.EventHandler;
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Parent;
@@ -9,6 +10,8 @@ import javafx.scene.control.ListCell;
 import javafx.scene.layout.HBox;
 
 import java.io.IOException;
+
+import org.omg.CORBA.INITIALIZE;
 
 
 public class ListViewCell extends ListCell<Person> {
@@ -26,6 +29,7 @@ public class ListViewCell extends ListCell<Person> {
 
 	private void voltarAoMenuPrincipal() {
 		// Go back to main screen
+
 		Parent telaInicial = null;
 		try {
 			telaInicial = (Parent) new FXMLLoader(getClass().getResource("sample.fxml")).load();
@@ -37,20 +41,29 @@ public class ListViewCell extends ListCell<Person> {
 		Main.getPrimaryStage().show();
 	}
 
+//	@FXML
+//	private void deleteCell(ActionEvent event){
+//		getListView().getItems().remove(getItem());
+//
+//		if (getListView().getItems().size() == 0) {
+//			voltarAoMenuPrincipal();
+//		}
+//	}
+	
 	@FXML
-	private void deleteCell(ActionEvent event){
-		getListView().getItems().remove(getItem());
-
-		if (getListView().getItems().size() == 0) {
+	public void initialize(){
+		deleteBtn.setOnAction(event -> {getListView().getItems().remove(getItem());
+		if (getListView().getItems().size() == 0){
 			voltarAoMenuPrincipal();
 		}
+		});
 	}
 
 	@Override
 	protected void updateItem(Person item, boolean empty) {
 		super.updateItem(item, empty);
 		if (item != null) {
-
+			
 			FXMLLoader fxmlLoader = new FXMLLoader(getClass().getResource("Cell.fxml"));
 			fxmlLoader.setController(this);
 			try {
